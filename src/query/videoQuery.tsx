@@ -43,7 +43,7 @@ export function useRelated(id: string) {
 
 export function useSearch(q: string) {
   const fetchSearch = (q: string) => {
-    return client.get("/search", { params: { part: "snippet,statistics", maxResults: "25", q } }).then((res) => res.data);
+    return client.get("/search", { params: { part: "snippet", maxResults: "25", q } }).then((res) => res.data);
     // return axios.get("/data/searchKeyword.json").then((res) => res.data);
   };
   return useQuery(["searchKeyword"], () => fetchSearch(q));

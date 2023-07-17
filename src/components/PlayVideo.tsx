@@ -56,7 +56,7 @@ export default function PlayVideo(props: Props) {
             <span>{data?.items[0].snippet.description}</span>
             <br />
             <br />
-            <span className="text-blue-600"> {data?.items[0].snippet.tags.map((o: string) => " #" + o)} </span>
+            <span className="text-blue-600"> {data?.items[0].snippet.tags?.map((o: string) => " #" + o)} </span>
           </div>
           <button className="mt-1" onClick={() => setIsToggle(!isToggle)}>
             {isToggle ? "간략히" : "더보기"}
