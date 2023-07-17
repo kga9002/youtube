@@ -21,10 +21,6 @@ export default function PlayVideo(props: Props) {
     } else return subNum;
   }
 
-  useEffect(() => {
-    console.log(data);
-  });
-
   return (
     <>
       <div className="pb-[56.25%] w-full relative">
@@ -45,13 +41,13 @@ export default function PlayVideo(props: Props) {
           </div>
           <div className="ml-1 float-left">
             <p className="text-textPrimary font-semibold text-base">{channelInfo?.items[0].snippet.title}</p>
-            {/* <p className="text-textSecondary text-xs">구독자 {filterSubscribe(channelInfo?.items[0].statistics.subscriberCount)}명</p> */}
+            <p className="text-textSecondary text-xs">구독자 {filterSubscribe(channelInfo?.items[0].statistics.subscriberCount)}명</p>
           </div>
         </div>
         <div className="w-full bg-describeBox rounded-lg h-fit p-3 text-sm text-textPrimary">
           <div className="pb-1">
             <span>조회수 </span>
-            {/* <span className="font-semibold">{Number(data?.items[0].statistics.viewCount).toLocaleString("ko-KR")}</span> */}
+            <span className="font-semibold">{Number(data?.items[0].statistics.viewCount).toLocaleString("ko-KR")}</span>
             <span>회</span>
             <span> </span>
             <span className="font-semibold">{dayjs(data?.items[0].snippet.publishedAt).format("YYYY.MM.DD")}</span>
@@ -60,7 +56,7 @@ export default function PlayVideo(props: Props) {
             <span>{data?.items[0].snippet.description}</span>
             <br />
             <br />
-            {/* <span className="text-blue-600"> {data?.items[0].snippet.tags.map((o: string) => " #" + o)} </span> */}
+            <span className="text-blue-600"> {data?.items[0].snippet.tags.map((o: string) => " #" + o)} </span>
           </div>
           <button className="mt-1" onClick={() => setIsToggle(!isToggle)}>
             {isToggle ? "간략히" : "더보기"}
