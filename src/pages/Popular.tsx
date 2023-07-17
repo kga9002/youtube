@@ -10,14 +10,14 @@ export default function Popular() {
   const { data, isLoading, isError } = usePopularVideos();
   const navigate = useNavigate();
 
-  function filterViewCount(count: string) {
-    const countNum = Number(count);
-    if (countNum > 10000) {
-      return Math.floor(countNum / 10000) + "만";
-    } else if (countNum > 1000) {
-      return Math.floor(countNum / 1000) + "천";
-    } else return countNum;
-  }
+  // function filterViewCount(count: string) {
+  //   const countNum = Number(count);
+  //   if (countNum > 10000) {
+  //     return Math.floor(countNum / 10000) + "만";
+  //   } else if (countNum > 1000) {
+  //     return Math.floor(countNum / 1000) + "천";
+  //   } else return countNum;
+  // }
 
   function filterDate(date: string) {
     const publish = dayjs(date);
@@ -65,7 +65,7 @@ export default function Popular() {
                   {o.snippet.title}
                 </p>
                 <p className="text-sm font-semibold text-textSecondary mt-1">{o.snippet.channelTitle}</p>
-                <p className="text-sm text-textSecondary">조회수 {`${filterViewCount(o.statistics.viewCount)}회 · ${filterDate(o.snippet.publishedAt)}전`}</p>
+                <p className="text-sm text-textSecondary">{filterDate(o.snippet.publishedAt)} 전</p>
               </div>
             </div>
           </li>

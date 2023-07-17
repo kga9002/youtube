@@ -13,10 +13,6 @@ export default function RelatedVideo(props: Props) {
   const { data, isLoading, isError } = useRelated(props.id);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log(data);
-  });
-
   function filterDate(date: string) {
     const publish = dayjs(date);
     const today = dayjs();
@@ -48,10 +44,10 @@ export default function RelatedVideo(props: Props) {
       )}
       {data?.items.map((o: any) => (
         <div className="w-full flex flex-row mt-2">
-          <div className="mr-2 w-[168px] h-[88px] relative cursor-pointer" onClick={() => navigate(`/video/${o.id.videoId}`)}>
+          <div className="mr-2 w-[168px] h-[88px] cursor-pointer" onClick={() => navigate(`/video/${o.id.videoId}`)}>
             <img src={o.snippet.thumbnails.medium.url} alt={o.etag} className="w-full h-full rounded-lg" />
           </div>
-          <div className="text-ellipsis w-[calc(100%_-_176px)]">
+          <div className="w-[calc(100%_-_176px)]">
             <p onClick={() => navigate(`/video/${o.id.videoId}`)} className="text-textPrimary font-semibold text-sm line-clamp-2 cursor-pointer">
               {o.snippet.title}
             </p>
